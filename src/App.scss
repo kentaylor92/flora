@@ -66,21 +66,24 @@ canvas {
   }
 
   .logo {
-    max-width: 300px;
+    padding-top: 100px;
+    // max-width: 400px;
+    width: 40%;
     text-align: center;
     margin: 0 auto;
     padding-bottom: 20px;
     @media (max-width: 500px) {
-      width: 150px;
+      padding-top: 0;
+      width: 200px;
     }
   }
 
-  .fade {
-    opacity: 0.6;
+  .score-main {
+    font-size: 1.6rem;
   }
 
   .game-over {
-    padding-top: 20px;
+    padding-top: 50px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -90,23 +93,67 @@ canvas {
     border: 5px solid #1A8943;
     width: 100vw;
     height: 100vh;
+    overflow-y: scroll;
+    background-color: #F29FC5;
+
+    img {
+      width: 30%;
+    }
 
     h2 {
-      padding: 10px 0;
+      padding: 10px 0 0 0;
       color: #1A8943;
-      font-size: 3rem;
+      font-size: 2rem;
     }
 
     .thanks {
-      padding: 10px 0;
+      padding: 5px 0;
       font-size: 1.6rem;
+      p {
+        // padding: px 0;
+        font-size: 1.7rem;
+        color: black;
+      }
+
+      p:nth-of-type(1) {
+        color: #1A8943;
+        // color: black;
+        // font-size: 2rem;
+      }
+      p:nth-of-type(2) {
+        // color: #5760AB;
+        // color: #1A8943;
+        padding-top: 20px;
+      }
+      // p:nth-of-type(3) {
+      //   // color: #F4763A;
+      //   // color: black;
+      // }
+      // p:nth-of-type(4) {
+      //   // color: #5760AB
+      //   // color: #1A8943;
+      // }
+      // p:nth-of-type(5) {
+      //   // color: #F4763A;
+      //   // color: black;
+      // }
     }
   }
 
   .score {
     padding: 30px 0;
     p {
-      font-size: 2rem;
+      font-size: 1.6rem;
+    }
+
+    .winner {
+      font-size: 1.6rem;
+      color: #1A8943;
+    }
+
+    .loser {
+      font-size: 1.6rem;
+      color: red;
     }
   }
 
@@ -127,34 +174,4 @@ canvas {
       display: none;
     }
   }
-
-  .mobile-controls {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    width: 80%;
-    margin-top: 20px;
-
-    @media (min-width: 500px) {
-      display: none;
-    }
-    .controls {
-      width: 100%;
-    }
-
-
-    .left-right {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      p {
-        width: 25%;
-      }
-    }
-  }
-
-
-
 }

@@ -105,7 +105,7 @@ const Canvas = () => {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
     context.fillStyle = "#1A8943";
     snake.forEach(([x, y]) => context.fillRect(x, y, 1, 1));
-    context.fillStyle = "pink";
+    context.fillStyle = "#F29FC5";
     context.fillRect(apple[0], apple[1], 1, 1);
 
   }, [snake, apple, gameOver]);
@@ -118,7 +118,7 @@ const Canvas = () => {
     preventDefaultTouchmoveEvent: true,
     trackTouch: true,
     trackMouse: true,
-    delta: 10,
+    delta: 0,
   });
   
 
@@ -134,24 +134,22 @@ const Canvas = () => {
         // onClick={e => {e.preventDefault(); startGame(); }}
       />
 
-      {/* <div className="mobile-controls">
-        <div className="controls"><i className="fas fa-arrow-alt-circle-up" onClick={e => {goUp(); }}></i></div>
-        <div className="left-right controls">
-          <p className=""><i className="fas fa-arrow-alt-circle-left" onClick={e => {goLeft(); }}></i></p>
-          <p className="" ><i className="fas fa-arrow-alt-circle-right" onClick={e => {goRight(); }}></i></p>
-        </div>
-        <p className="controls" ><i className="fas fa-arrow-alt-circle-down" onClick={e => {goDown(); }}></i></p>
-      </div> */}
-
-      {/* {score && <div>{score}</div>} */}
+      {score ? <div className="score-main">Your score: {score}</div> : <div className="score-main">Your score: 0</div>}
       {gameOver && 
         <div className="game-over">
           <img className="logo" src="/assets/logo-blue.png" alt="Tambayan by Paraluman Flora logo"></img>
-          <h2>Game Over!</h2>
-          <p className="thanks">Thank you for playing!</p>
+          <h2>Thanks for playing!</h2>
+          <div className="thanks">
+            <p>You're invited to our grand opening!</p>
+            <p>May 8th</p>
+            <p>9:00 AM</p>
+            <p>McCormick Park</p>
+            <p>Toronto, ON</p>
+
+          </div>
 
         {!!score && <ScoreModal score={score} gameOver={gameOver} />}
-          <button onClick={e => {e.preventDefault(); setGameOver(!gameOver);}}>Play Again!</button>
+          <button className="play-again" onClick={e => {e.preventDefault(); setGameOver(!gameOver);}}>Play Again!</button>
 
         </div>
       }
