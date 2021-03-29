@@ -8,6 +8,10 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
+html {
+  background-color: #F4763A;
+}
+
 img {
   width: 100%;
 }
@@ -33,16 +37,81 @@ a {
   color: black;
 }
 
+.fas {
+  font-size: 2rem;
+  color: rgb(87, 96, 171);
+
+}
+
 .App {
   max-width: 900px;
-  margin: 100px auto 0 auto;
+  margin: 20px auto 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  background-color: #F4763A;
+  @media (max-width: 500px) {
+    max-height: 100vh;
+    overflow-y: hidden;
+  }
 
   h1 {
     margin-bottom: 30px;
     text-transform: uppercase;
   }
+
+  .logo {
+    max-width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    @media (max-width: 500px) {
+      width: 150px;
+    }
+  }
+
+  .fade {
+    opacity: 0.6;
+  }
+
+  .game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 1);
+    border: 5px solid #1A8943;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .mobile-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 200px;
+    margin: 0 auto;
+
+    @media (min-width: 500px) {
+      display: none;
+    }
+    .controls {
+      width: 100%;
+    }
+
+
+    .left-right {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      p {
+        width: 50%;
+      }
+    }
+  }
+
+
+
 }

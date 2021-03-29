@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useInterval } from "./useInterval";
+// import { faHome } from "@fortawesome/fontawesome-svg-core";
+// import { arrowRight, arrowLeft } from "@fortawesome/fontawesome-svg-core";
 import '../Styles/Canvas.scss';
 import {
   CANVAS_SIZE,
@@ -31,6 +33,19 @@ const Canvas = () => {
 
   const moveSnake = ({ keyCode }) =>
     keyCode >= 37 && keyCode <= 40 && setDir(DIRECTIONS[keyCode]);
+
+  const goLeft = () => {
+    setDir(DIRECTIONS[37]);
+  }
+  const goRight = () => {
+    setDir(DIRECTIONS[39]);
+  }
+  const goUp = () => {
+    setDir(DIRECTIONS[38]);
+  }
+  const goDown = () => {
+    setDir(DIRECTIONS[40]);
+  }
 
   const createApple = () =>
     apple.map((_a, i) => Math.floor(Math.random() * (CANVAS_SIZE[i] / SCALE)));
@@ -85,24 +100,44 @@ const Canvas = () => {
     const context = canvasRef.current.getContext("2d");
     context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    context.fillStyle = "pink";
+    context.fillStyle = "#1A8943";
     snake.forEach(([x, y]) => context.fillRect(x, y, 1, 1));
-    context.fillStyle = "lightblue";
+    context.fillStyle = "pink";
     context.fillRect(apple[0], apple[1], 1, 1);
   }, [snake, apple, gameOver]);
 
   return (
-    <div className="canvas" role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
+    <div className={`canvas`} role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
+      <button onClick={e => {e.preventDefault(); startGame()}}>Start Game</button>
       <canvas
-        style={{ border: "1px solid black" }}
+        style={{ border: "3px solid #5760AB" }}
         ref={canvasRef}
         width={`${CANVAS_SIZE[0]}px`}
         height={`${CANVAS_SIZE[1]}px`}
       />
-      <button onClick={startGame}>Start Game</button>
+
+      <div className="mobile-controls">
+        <div className="controls" onClick={e => { e.preventDefault(); goUp(); }}><i class="fas fa-arrow-alt-circle-up"></i></div>
+        <div className="left-right controls">
+          <p className="" onClick={e => { e.preventDefault(); goLeft(); }}><i class="fas fa-arrow-alt-circle-left"></i></p>
+          <p className="" onClick={e => { e.preventDefault(); goRight(); }}><i class="fas fa-arrow-alt-circle-right"></i></p>
+        </div>
+        <p className="controls" onClick={e => { e.preventDefault(); goDown(); }}><i class="fas fa-arrow-alt-circle-down"></i></p>
+      </div>
+
       {/* {score && <div>{score}</div>} */}
-      {gameOver && <div>GAME OVER!</div>}
-      {!!score && <ScoreModal score={score} gameOver={gameOver}/>}
+      {gameOver && 
+        <div className="game-over">
+          <img className="logo" src="/assets/logo-blue.png" alt="Tambayan by Paraluman Flora logo"></img>
+          <h2>Game Over!</h2>
+          <p>Thank you for playing!</p>
+
+        {!!score && <ScoreModal score={score} gameOver={gameOver} />}
+          <button onClick={e => {e.preventDefault(); setGameOver(!gameOver)}}>Play Again!</button>
+
+        </div>
+      }
+      {/* {!!score && <ScoreModal score={score} gameOver={gameOver}/>} */}
     </div>
   );
 };
