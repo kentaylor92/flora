@@ -21,7 +21,6 @@ const Canvas = () => {
   const [speed, setSpeed] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(null);
-  const [hideButton, setHideButton] = useState(false);
 
   // console.log(score)
 
