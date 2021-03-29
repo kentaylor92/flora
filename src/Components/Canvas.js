@@ -21,6 +21,7 @@ const Canvas = () => {
   const [speed, setSpeed] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(null);
+  const [hideButton, setHideButton] = useState(false);
 
   // console.log(score)
 
@@ -96,6 +97,9 @@ const Canvas = () => {
     setScore(null)
   };
 
+  let canvas = document.getElementById('#canvas');
+  
+
   useEffect(() => {
     const context = canvasRef.current.getContext("2d");
     context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
@@ -108,21 +112,23 @@ const Canvas = () => {
 
   return (
     <div className={`canvas`} role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
-      <button onClick={e => {e.preventDefault(); startGame()}}>Start Game</button>
+      {/* <button className={`start-button ${hideButton ? 'hidden' : ''}`} onClick={e => {e.preventDefault(); startGame(); setHideButton(true); }}>Start Game</button> */}
       <canvas
         style={{ border: "3px solid #5760AB" }}
         ref={canvasRef}
+        id="canvas"
         width={`${CANVAS_SIZE[0]}px`}
         height={`${CANVAS_SIZE[1]}px`}
+        onClick={e => {e.preventDefault(); startGame(); }}
       />
 
       <div className="mobile-controls">
-        <div className="controls" onClick={e => { e.preventDefault(); goUp(); }}><i class="fas fa-arrow-alt-circle-up"></i></div>
+        <div className="controls"><i className="fas fa-arrow-alt-circle-up" onClick={e => {goUp(); }}></i></div>
         <div className="left-right controls">
-          <p className="" onClick={e => { e.preventDefault(); goLeft(); }}><i class="fas fa-arrow-alt-circle-left"></i></p>
-          <p className="" onClick={e => { e.preventDefault(); goRight(); }}><i class="fas fa-arrow-alt-circle-right"></i></p>
+          <p className=""><i className="fas fa-arrow-alt-circle-left" onClick={e => {goLeft(); }}></i></p>
+          <p className="" ><i className="fas fa-arrow-alt-circle-right" onClick={e => {goRight(); }}></i></p>
         </div>
-        <p className="controls" onClick={e => { e.preventDefault(); goDown(); }}><i class="fas fa-arrow-alt-circle-down"></i></p>
+        <p className="controls" ><i className="fas fa-arrow-alt-circle-down" onClick={e => {goDown(); }}></i></p>
       </div>
 
       {/* {score && <div>{score}</div>} */}
@@ -130,10 +136,10 @@ const Canvas = () => {
         <div className="game-over">
           <img className="logo" src="/assets/logo-blue.png" alt="Tambayan by Paraluman Flora logo"></img>
           <h2>Game Over!</h2>
-          <p>Thank you for playing!</p>
+          <p className="thanks">Thank you for playing!</p>
 
         {!!score && <ScoreModal score={score} gameOver={gameOver} />}
-          <button onClick={e => {e.preventDefault(); setGameOver(!gameOver)}}>Play Again!</button>
+          <button onClick={e => {e.preventDefault(); setGameOver(!gameOver); setHideButton(false); }}>Play Again!</button>
 
         </div>
       }
