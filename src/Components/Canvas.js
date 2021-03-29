@@ -138,7 +138,7 @@ const Canvas = () => {
           <p className="thanks">Thank you for playing!</p>
 
         {!!score && <ScoreModal score={score} gameOver={gameOver} />}
-          <button onClick={e => {e.preventDefault(); setGameOver(!gameOver); setHideButton(false); }}>Play Again!</button>
+          <button onClick={e => {e.preventDefault(); setGameOver(!gameOver);}}>Play Again!</button>
 
         </div>
       }
