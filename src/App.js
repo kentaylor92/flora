@@ -5,8 +5,7 @@ import './App.scss';
 const App = () => {
   return (
     <div className="App">
-      <img className="logo" src="/assets/logo-blue.png" alt="Tambayan by Paraluman Flora logo"></img>
-      <p>Font test</p>
+      <img className="logo" src="/assets/logo-blue.png" alt="Tambayan by Paraluman Flora logo"></img>      
       <Canvas />
     </div>
   );

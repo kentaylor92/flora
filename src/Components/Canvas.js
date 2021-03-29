@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useInterval } from "./useInterval";
-// import { faHome } from "@fortawesome/fontawesome-svg-core";
-// import { arrowRight, arrowLeft } from "@fortawesome/fontawesome-svg-core";
+import { useSwipeable } from "react-swipeable";
 import '../Styles/Canvas.scss';
 import {
   CANVAS_SIZE,
@@ -96,7 +95,8 @@ const Canvas = () => {
     setScore(null)
   };
 
-  let canvas = document.getElementById('#canvas');
+  
+
   
 
   useEffect(() => {
@@ -107,28 +107,41 @@ const Canvas = () => {
     snake.forEach(([x, y]) => context.fillRect(x, y, 1, 1));
     context.fillStyle = "pink";
     context.fillRect(apple[0], apple[1], 1, 1);
+
   }, [snake, apple, gameOver]);
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => goLeft(),
+    onSwipedRight: () => goRight(),
+    onSwipedUp: () => goUp(),
+    onSwipedDown: () => goDown(),
+    preventDefaultTouchmoveEvent: true,
+    trackTouch: true,
+    trackMouse: true,
+    delta: 10,
+  });
+  
+
   return (
-    <div className={`canvas`} role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
-      {/* <button className={`start-button ${hideButton ? 'hidden' : ''}`} onClick={e => {e.preventDefault(); startGame(); setHideButton(true); }}>Start Game</button> */}
+    <div {...handlers} className={`canvas`} role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
+      <button className={`start-button`} onClick={e => {e.preventDefault(); startGame();}}>Start Game</button>
       <canvas
         style={{ border: "3px solid #5760AB" }}
         ref={canvasRef}
         id="canvas"
         width={`${CANVAS_SIZE[0]}px`}
         height={`${CANVAS_SIZE[1]}px`}
-        onClick={e => {e.preventDefault(); startGame(); }}
+        // onClick={e => {e.preventDefault(); startGame(); }}
       />
 
-      <div className="mobile-controls">
+      {/* <div className="mobile-controls">
         <div className="controls"><i className="fas fa-arrow-alt-circle-up" onClick={e => {goUp(); }}></i></div>
         <div className="left-right controls">
           <p className=""><i className="fas fa-arrow-alt-circle-left" onClick={e => {goLeft(); }}></i></p>
           <p className="" ><i className="fas fa-arrow-alt-circle-right" onClick={e => {goRight(); }}></i></p>
         </div>
         <p className="controls" ><i className="fas fa-arrow-alt-circle-down" onClick={e => {goDown(); }}></i></p>
-      </div>
+      </div> */}
 
       {/* {score && <div>{score}</div>} */}
       {gameOver && 
