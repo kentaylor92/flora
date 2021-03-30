@@ -20,6 +20,7 @@ const Canvas = () => {
   const [speed, setSpeed] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(null);
+  const [gameOn, setGameOn] = useState(false);
 
   // console.log(score)
 
@@ -28,6 +29,7 @@ const Canvas = () => {
   const endGame = () => {
     setSpeed(null);
     setGameOver(true);
+    setGameOn(false);
   };
 
   const moveSnake = ({ keyCode }) =>
@@ -95,10 +97,6 @@ const Canvas = () => {
     setScore(null)
   };
 
-  
-
-  
-
   useEffect(() => {
     const context = canvasRef.current.getContext("2d");
     context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
@@ -124,21 +122,19 @@ const Canvas = () => {
 
   return (
     <div {...handlers} className={`canvas`} role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
-      <button className={`start-button`} onClick={e => {e.preventDefault(); startGame();}}>Start Game</button>
+      <button className={`start-button ${gameOn ? 'hidden' : ''}`} onClick={e => {e.preventDefault(); startGame(); setGameOn(true); }}>Start Game</button>
       <canvas
         style={{ border: "3px solid #5760AB" }}
         ref={canvasRef}
         id="canvas"
         width={`${CANVAS_SIZE[0]}px`}
-        height={`${CANVAS_SIZE[1]}px`}
-        // onClick={e => {e.preventDefault(); startGame(); }}
+        height={`${CANVAS_SIZE[1]}px`}        
       />
 
       {score ? <div className="score-main">Your score: {score}</div> : <div className="score-main">Your score: 0</div>}
       {gameOver && 
         <div className="game-over">
-          <img className="logo" src="/assets/logo-blue.png" alt="Tambayan by Paraluman Flora logo"></img>
-          <h2>Thanks for playing!</h2>
+          <img className="logo" src="/assets/logo-orange.png" alt="Tambayan by Paraluman Flora logo"></img>          
           <div className="thanks">
             <p>You're invited to our grand opening!</p>
             <p>May 8th</p>
@@ -152,8 +148,7 @@ const Canvas = () => {
           <button className="play-again" onClick={e => {e.preventDefault(); setGameOver(!gameOver);}}>Play Again!</button>
 
         </div>
-      }
-      {/* {!!score && <ScoreModal score={score} gameOver={gameOver}/>} */}
+      }      
     </div>
   );
 };

@@ -43,7 +43,9 @@ a {
 
 }
 
-canvas {
+canvas,
+button,
+html {
   outline: none;
 }
 
@@ -53,8 +55,7 @@ canvas {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
-  background-color: #F4763A;
+  text-align: center;  
   @media (max-width: 500px) {
     max-height: 100vh;
     overflow-y: hidden;
@@ -66,8 +67,7 @@ canvas {
   }
 
   .logo {
-    padding-top: 100px;
-    // max-width: 400px;
+    padding-top: 100px;    
     width: 40%;
     text-align: center;
     margin: 0 auto;
@@ -80,21 +80,22 @@ canvas {
 
   .score-main {
     font-size: 1.6rem;
+    color: #5760AB;
+    text-shadow: 1px 1px 1px white;
   }
 
   .game-over {
-    padding-top: 50px;
+    padding: 50px 15px 20px 15px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 20px;
-    background-color: rgba(255, 255, 255, 1);
+    font-size: 20px;    
+    background-color: #5760AB;
     border: 5px solid #1A8943;
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;
-    background-color: #F29FC5;
 
     img {
       width: 30%;
@@ -103,75 +104,70 @@ canvas {
     h2 {
       padding: 10px 0 0 0;
       color: #1A8943;
-      font-size: 2rem;
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 1px black;
     }
 
     .thanks {
       padding: 5px 0;
       font-size: 1.6rem;
-      p {
-        // padding: px 0;
-        font-size: 1.7rem;
-        color: black;
+      p {        
+        font-size: 1.7rem;        
+        color: #F4763A;
+        text-shadow: 1px 1px 1px black;
       }
 
-      p:nth-of-type(1) {
-        color: #1A8943;
-        // color: black;
-        // font-size: 2rem;
+      p:nth-of-type(1) {        
+        color: white;
+        text-shadow: 1px 1px 1px #F4763A;        
       }
-      p:nth-of-type(2) {
-        // color: #5760AB;
-        // color: #1A8943;
+      p:nth-of-type(2) {        
         padding-top: 20px;
       }
-      // p:nth-of-type(3) {
-      //   // color: #F4763A;
-      //   // color: black;
-      // }
-      // p:nth-of-type(4) {
-      //   // color: #5760AB
-      //   // color: #1A8943;
-      // }
-      // p:nth-of-type(5) {
-      //   // color: #F4763A;
-      //   // color: black;
-      // }
     }
   }
 
   .score {
     padding: 30px 0;
+    color: white;
+    text-shadow: 1px 1px 1px #F4763A;
+    
     p {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     }
 
     .winner {
-      font-size: 1.6rem;
-      color: #1A8943;
+      font-size: 1.6rem;      
     }
 
     .loser {
       font-size: 1.6rem;
-      color: red;
+      color: #F4763A;
+      text-shadow: 1px 1px 1px black;
     }
+  }
+
+  .play-again {
+    background: none;
+    border: 3px solid #F4763A;
+    color: white;    
+    padding: 5px 8px;
+    box-shadow: 1px 2px 1px white;
   }
 
   .start-button {
     background: none;
-    background-color: #1A8943;
-    padding: 10px;
-    margin-bottom: 20px;
-    // position: absolute;
-    // top: 25%;
-    color: white;
-    border-radius: 5px;
+    background-color: white;
+    padding: 5px 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #1A8943;
+    border-radius: 2px;
     border: 2px solid white;
-    // left: 50%;
-    // transform: translate(-50%, -25%);
+    transition: 0.3s ease-in-out;
 
     &.hidden {
-      display: none;
+      opacity: 0;
     }
   }
 }
