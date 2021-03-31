@@ -10,10 +10,14 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 html {
   background-color: #FADED0;
-  background-image: url('./Styles/tambayan-desktop-graphics-x2.png');
+  background-image: url('./Styles/assets/tambayan-desktop-graphics-x2.png');
   background-position: top;
   background-size: contain;  
   background-repeat: no-repeat;
+  overflow-y: hidden;
+  @media (max-width: 500px) {
+    background-image: none;
+  }
 }
 
 img {
@@ -64,10 +68,10 @@ canvas {
   flex-direction: column;
   justify-content: center;
   text-align: center;  
-  @media (max-width: 500px) {
-    max-height: 100vh;
-    overflow-y: hidden;
-  }
+  // @media (max-width: 500px) {
+  //   max-height: 100vh;
+  //   overflow-y: hidden;
+  // }
 
   h1 {
     margin-bottom: 30px;
@@ -86,11 +90,33 @@ canvas {
     }
   }
 
+  .mobile-top-img {
+    display: none;
+    @media (max-width: 500px) {
+      display: block;
+      padding: 30px 0;
+      max-width: 25%;
+      margin: 0 auto;
+    }
+  }
+  .mobile-bottom-img {
+    display: none;
+    @media (max-width: 500px) {
+      display: block;
+      max-width: 15%;
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+  }
+
   .score-main {
     margin-top: 30px;
     font-size: 1.6rem;
     color: #5760AB;
     text-shadow: 1px 1px 1px white;
+    @media (max-width: 500px) {
+      margin-top: 10px;
+    }
   }
 
   .game-over {
@@ -101,18 +127,23 @@ canvas {
     transform: translate(-50%, -50%);
     font-size: 20px;    
     background-color: #FADED0;
-    background-image: url('./Styles//tambayan-desktop-graphics-x2.png');
+    background-image: url('./Styles/assets/tambayan-desktop-graphics-x2.png');
     background-position: top;
     background-size: contain;  
     background-repeat: no-repeat;
-    // border: 5px solid #1A8943;
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;
+    @media (max-width: 500px) {
+      background-image: none;
+    }
 
-    img {
+    .logo {
       padding-top: 20px;
       width: 20%;
+      @media (max-width: 500px) {
+      width: 60%;
+    }
     }
 
     h2 {
@@ -120,6 +151,11 @@ canvas {
       padding: 10px 0 0 0;
       color: #5760AB;  
       font-size: 1.8rem;
+      @media (max-width: 500px) {
+        font-size: 1.6rem;
+        padding: 0;
+        margin: 0;
+      }
     }
 
     .thanks {
@@ -128,6 +164,9 @@ canvas {
       text-align: center;
       margin: 0 auto;
       width: 43%;
+      @media (max-width: 500px) {
+        width: 90%;
+      }
       p {        
         font-size: 1.6rem; 
         color: #5760AB;      
@@ -135,6 +174,9 @@ canvas {
         padding: 10px 0;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         border-width: 60%;
+        @media (max-width: 500px) {
+          font-size: 1.5rem;
+        }
       }
 
       p:nth-of-type(1) {        
@@ -151,26 +193,29 @@ canvas {
     color: #5760AB;
     margin: 0 auto;
     width: 43%;
+    @media (max-width: 500px) {
+      width: 90%;
+    }
     
     p {
       font-size: 1.4rem;
     }
     
     p:nth-of-type(1) {
+      padding: 5px;
       background-color: rgba(255,255,255,0.3);  
     }
-
-    .winner {
-      font-size: 1.6rem;      
+    p:nth-of-type(2) {
+      padding-top: 10px;  
     }
 
-    .loser {
-      padding-top: 10px;
-      font-size: 1.4rem;
-      font-family: 'Syne', sans-serif !important;
-      // line-height: 3;
-      color: #5760AB;
-    }
+  }
+  .winner
+  .loser {
+    padding-top: 40px;
+    font-size: 1.4rem;      
+    font-family: 'Syne', sans-serif !important;
+    color: #5760AB;
   }
 
   .play-again {
@@ -191,6 +236,9 @@ canvas {
     border-radius: 2px;
     border: none;
     transition: 0.3s ease-in-out;
+    @media (max-width: 500px) {
+      margin-top: 0;
+    }
 
     &.hidden {
       opacity: 0;

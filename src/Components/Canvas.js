@@ -134,6 +134,7 @@ const Canvas = () => {
       {score ? <div className="score-main">Your score: {score}</div> : <div className="score-main">Your score: 0</div>}
       {gameOver && 
         <div className="game-over">
+          <img className="mobile-top-img" src="/assets/tambayan-mobile-top-flower-x2.png" alt="Tambayan by Paraluman Flora logo"></img>          
           <img className="logo" src="/assets/logo-orange.png" alt="Tambayan by Paraluman Flora logo"></img>          
           <div className="thanks">
             <h2>You're invited to our grand opening!</h2>
@@ -147,6 +148,7 @@ const Canvas = () => {
 
         </div>
       }      
+      <img className="mobile-bottom-img" src="/assets/tambayan-mobile-bottom-flower-x2.png" alt="Tambayan by Paraluman Flora logo"></img>          
     </div>
   );
 };
