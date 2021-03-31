@@ -9,7 +9,11 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
 html {
-  background-color: #F4763A;
+  background-color: #FADED0;
+  background-image: url('./Styles/tambayan-desktop-graphics-x2.png');
+  background-position: top;
+  background-size: contain;  
+  background-repeat: no-repeat;
 }
 
 img {
@@ -49,6 +53,10 @@ html {
   outline: none;
 }
 
+canvas {
+  background-color: #F9E6D8;
+}
+
 .App {
   max-width: 900px;
   margin: 20px auto 0 auto;
@@ -67,7 +75,7 @@ html {
   }
 
   .logo {
-    padding-top: 100px;    
+    padding-top: 50px;    
     width: 40%;
     text-align: center;
     margin: 0 auto;
@@ -79,6 +87,7 @@ html {
   }
 
   .score-main {
+    margin-top: 30px;
     font-size: 1.6rem;
     color: #5760AB;
     text-shadow: 1px 1px 1px white;
@@ -91,50 +100,64 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 20px;    
-    background-color: #5760AB;
-    border: 5px solid #1A8943;
+    background-color: #FADED0;
+    background-image: url('./Styles//tambayan-desktop-graphics-x2.png');
+    background-position: top;
+    background-size: contain;  
+    background-repeat: no-repeat;
+    // border: 5px solid #1A8943;
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;
 
     img {
-      padding-top: 30px;
-      width: 30%;
+      padding-top: 20px;
+      width: 20%;
     }
 
     h2 {
+      margin-top: 20px;
       padding: 10px 0 0 0;
-      color: #1A8943;
-      font-size: 1.5rem;
-      text-shadow: 1px 1px 1px black;
+      color: #5760AB;  
+      font-size: 1.8rem;
     }
 
     .thanks {
       padding: 5px 0;
       font-size: 1.6rem;
+      text-align: center;
+      margin: 0 auto;
+      width: 43%;
       p {        
-        font-size: 1.7rem;        
-        color: #F4763A;
-        text-shadow: 1px 1px 1px black;
+        font-size: 1.6rem; 
+        color: #5760AB;      
+        font-family: 'Syne', sans-serif !important;
+        padding: 10px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-width: 60%;
       }
 
       p:nth-of-type(1) {        
-        color: white;
-        text-shadow: 1px 1px 1px #F4763A;        
+        margin-top: 20px;
       }
-      p:nth-of-type(2) {        
-        padding-top: 20px;
+      p:nth-of-type(3) {        
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       }
     }
   }
 
   .score {
-    padding: 30px 0;
-    color: white;
-    text-shadow: 1px 1px 1px #F4763A;
+    padding: 20px 0;
+    color: #5760AB;
+    margin: 0 auto;
+    width: 43%;
     
     p {
       font-size: 1.4rem;
+    }
+    
+    p:nth-of-type(1) {
+      background-color: rgba(255,255,255,0.3);  
     }
 
     .winner {
@@ -142,29 +165,31 @@ html {
     }
 
     .loser {
-      font-size: 1.6rem;
-      color: #F4763A;
-      text-shadow: 1px 1px 1px black;
+      padding-top: 10px;
+      font-size: 1.4rem;
+      font-family: 'Syne', sans-serif !important;
+      // line-height: 3;
+      color: #5760AB;
     }
   }
 
   .play-again {
-    background: none;
+    background: #F4763A;
     border: 3px solid #F4763A;
-    color: white;    
+    color: rgba(255,255,255,0.8);    
     padding: 5px 8px;
     box-shadow: 1px 2px 1px white;
   }
 
   .start-button {
     background: none;
-    background-color: white;
+    background-color: #5760AB;
     padding: 5px 10px;
     margin-top: 20px;
     margin-bottom: 5px;
-    color: #1A8943;
+    color: white;
     border-radius: 2px;
-    border: 2px solid white;
+    border: none;
     transition: 0.3s ease-in-out;
 
     &.hidden {

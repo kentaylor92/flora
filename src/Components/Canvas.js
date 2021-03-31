@@ -101,7 +101,7 @@ const Canvas = () => {
     const context = canvasRef.current.getContext("2d");
     context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    context.fillStyle = "#1A8943";
+    context.fillStyle = "#5760AB";
     snake.forEach(([x, y]) => context.fillRect(x, y, 1, 1));
     context.fillStyle = "#F29FC5";
     context.fillRect(apple[0], apple[1], 1, 1);
@@ -124,7 +124,7 @@ const Canvas = () => {
     <div {...handlers} className={`canvas`} role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
       <button className={`start-button ${gameOn ? 'hidden' : ''}`} onClick={e => {e.preventDefault(); startGame(); setGameOn(true); }}>Start Game</button>
       <canvas
-        style={{ border: "3px solid #5760AB" }}
+        style={{ border: "3px solid #F4763A" }}
         ref={canvasRef}
         id="canvas"
         width={`${CANVAS_SIZE[0]}px`}
@@ -136,12 +136,10 @@ const Canvas = () => {
         <div className="game-over">
           <img className="logo" src="/assets/logo-orange.png" alt="Tambayan by Paraluman Flora logo"></img>          
           <div className="thanks">
-            <p>You're invited to our grand opening!</p>
-            <p>May 8th</p>
-            <p>9:00 AM</p>
+            <h2>You're invited to our grand opening!</h2>
+            <p>May 8th at 9am</p>            
             <p>McCormick Park</p>
             <p>Toronto, ON</p>
-
           </div>
 
         {!!score && <ScoreModal score={score} gameOver={gameOver} />}
