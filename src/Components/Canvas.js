@@ -123,13 +123,13 @@ const Canvas = () => {
   return (
     <div {...handlers} className={`canvas`} role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
       <button className={`start-button ${gameOn ? 'hidden' : ''}`} onClick={e => {e.preventDefault(); startGame(); setGameOn(true); }}>Start Game</button>
-      <canvas
-        style={{ border: "3px solid #F4763A" }}
+      {<canvas
+        style={{ border: "3px solid #F4763A", display: gameOver ? 'none': 'block' }}
         ref={canvasRef}
         id="canvas"
         width={`${CANVAS_SIZE[0]}px`}
         height={`${CANVAS_SIZE[1]}px`}        
-      />
+      />}
 
       {!gameOver && score ? <div className="score-main">Your score: {score}</div> : <div className="score-main">Your score: 0</div>}
       {gameOver && 
@@ -143,8 +143,9 @@ const Canvas = () => {
             <p>Toronto, ON</p>
           </div>
 
-        {!gameOver && !!score && <ScoreModal score={score} gameOver={gameOver} />}
-          <button className="play-again" onClick={e => {e.preventDefault(); setGameOver(!gameOver);}}>Play Again!</button>
+        {gameOver && !!score && <ScoreModal score={score} gameOver={gameOver} />}
+
+        <button className="play-again" onClick={e => {e.preventDefault(); setGameOver(!gameOver);}}>Play Again!</button>
 
         {!!gameOver && <img className="mobile-bottom-img-game-over" src="/assets/tambayan-mobile-bottom-flower-x2.png" alt="Tambayan by Paraluman Flora logo"></img>}
         </div>

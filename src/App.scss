@@ -116,7 +116,7 @@ canvas {
       display: block;
       max-width: 20%;
       margin: 0 auto;
-      padding-top: 0px;
+      padding-top: 30px;
     }
   }
 
@@ -142,12 +142,14 @@ canvas {
     background-position: top;
     background-size: contain;  
     background-repeat: no-repeat;
-    width: 100vw;
-    // height: 100vh;
+    width: 80%;
+    height: 100vh;
     // overflow-y: scroll;
     @media (max-width: 500px) {
       background-image: none;
       height: 100%;
+      // min-height: 100vh;
+      // overflow-y: scroll;
     }
 
     .logo {
@@ -164,7 +166,7 @@ canvas {
       color: #5760AB;  
       font-size: 1.8rem;
       @media (max-width: 500px) {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         padding: 0;
         margin: 0;
       }
@@ -200,6 +202,7 @@ canvas {
     }
 
     .mobile-bottom-img-game-over {
+      display: none;
       @media (max-width: 500px) {
         display: block;
         max-width: 20%;
@@ -210,7 +213,7 @@ canvas {
   }
 
   .score {
-    padding: 20px 0;
+    padding: 20px 0 10px 0;
     color: #5760AB;
     margin: 0 auto;
     width: 43%;
@@ -245,6 +248,9 @@ canvas {
     color: rgba(255,255,255,0.8);    
     padding: 5px 8px;
     box-shadow: 1px 2px 1px white;
+    // @media (max-width: 500px) {
+    //   display: none;
+    // }
   }
 
   .start-button {
