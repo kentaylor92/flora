@@ -131,7 +131,7 @@ const Canvas = () => {
         height={`${CANVAS_SIZE[1]}px`}        
       />
 
-      {score ? <div className="score-main">Your score: {score}</div> : <div className="score-main">Your score: 0</div>}
+      {!gameOver && score ? <div className="score-main">Your score: {score}</div> : <div className="score-main">Your score: 0</div>}
       {gameOver && 
         <div className="game-over">
           <img className="mobile-top-img" src="/assets/tambayan-mobile-top-flower-x2.png" alt="Tambayan by Paraluman Flora logo"></img>          
@@ -143,12 +143,13 @@ const Canvas = () => {
             <p>Toronto, ON</p>
           </div>
 
-        {!!score && <ScoreModal score={score} gameOver={gameOver} />}
+        {!gameOver && !!score && <ScoreModal score={score} gameOver={gameOver} />}
           <button className="play-again" onClick={e => {e.preventDefault(); setGameOver(!gameOver);}}>Play Again!</button>
 
+        {!!gameOver && <img className="mobile-bottom-img-game-over" src="/assets/tambayan-mobile-bottom-flower-x2.png" alt="Tambayan by Paraluman Flora logo"></img>}
         </div>
       }      
-      <img className="mobile-bottom-img" src="/assets/tambayan-mobile-bottom-flower-x2.png" alt="Tambayan by Paraluman Flora logo"></img>          
+      {!gameOver && <img className="mobile-bottom-img" src="/assets/tambayan-mobile-bottom-flower-x2.png" alt="Tambayan by Paraluman Flora logo"></img>}       
     </div>
   );
 };
