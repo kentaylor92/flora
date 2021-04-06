@@ -7,7 +7,7 @@ const ScoreModal = ({score, gameOver}) => {
       {!!gameOver && 
         score < 20 ? 
         <p className="loser">
-          Reach the mystery high score to get a discount code!
+          Try again! Reach the mystery high score to receive 20% off!
         </p>
         : 
         <p className="winner">You win!  Your discount code is "KIM ROCKS"</p>
