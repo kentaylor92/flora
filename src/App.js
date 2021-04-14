@@ -21,7 +21,7 @@ const App = () => {
         <h3>Instructions</h3>
         <p>Mobile users, simply swipe the direction you want your snake to go!</p>
         <p>Desktop players can use keyboard arrows.</p>
-        <p>Keep trying until you reach the mystery score that will give you 20% off! </p>
+        <p>Keep trying until you reach the mystery score to receive 20% off! </p>
       </div>
       <img className="mobile-top-img" src="/assets/tambayan-mobile-top-flower-x2.png"></img>
       <img className="logo" src="/assets/logo-orange.png" alt="Tambayan by Paraluman Flora logo"></img>      
