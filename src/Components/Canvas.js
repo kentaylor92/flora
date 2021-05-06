@@ -138,7 +138,7 @@ const Canvas = () => {
           <img className="logo" src="/assets/logo-orange.png" alt="Tambayan by Paraluman Flora logo"></img>          
           <div className="thanks">
             <h2>You're invited to our grand opening!</h2>
-            <p>9am - 3pm May 8th + 9th</p>            
+            <p>9am - 3pm May 22nd + 23rd</p>            
             <p>McCormick Park</p>
             <p>Toronto, ON</p>
           </div>
