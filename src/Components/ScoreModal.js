@@ -9,8 +9,8 @@ const ScoreModal = ({score, gameOver}) => {
         <p className="loser">
           Try again! Reach the mystery high score to receive 20% off!
         </p>
-        : 
-        <p className="winner">You win! Take a screenshot to claim your prize at the event!</p>
+        :         
+        <p className="winner">You win! Take a screenshot and show the cashier to get 20% off!</p>
       }
       </div>
 
